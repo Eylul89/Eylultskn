@@ -1,0 +1,41 @@
+Sub StockHW()
+
+Dim name As String
+Dim volume As Double
+    volume = 0
+
+Dim summary_row As Integer
+    summary_row = 2
+
+Range("I1").Value = "Ticker"
+Range("j1").Value = "TotalVolume"
+
+    last_row = Cells(Rows.Count, 1).End(xlUp).Row
+
+        'Loop
+        
+        For i = 2 To last_row
+
+            If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+            
+            Cells(i, 1).Value = name
+
+            volume = volume + Cells(i, 7).Value
+
+                Range("I" + sum_row).Value = name
+
+                Range("J" + sum_row).Value = volume
+
+                sum_row = sum_row + 1
+
+                volume = 0
+
+            Else
+              
+             volume = volume + Cells(i, 7).Value
+
+            End If
+        
+        Next i
+
+End Sub
